@@ -1,0 +1,94 @@
+/* Import Google Font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #6563FF; /* Tailwind background color is blue-600 */
+}
+
+.container {
+  @apply flex flex-col items-center text-center w-full p-4;
+}
+
+/* Tailwind utilities replace these styles */
+.title {
+  @apply text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-yellow-500 mb-4;
+}
+
+.subtitle {
+  @apply text-lg text-white opacity-90 mb-6;
+}
+
+.wrapper {
+  @apply p-6 bg-white rounded-lg shadow-lg;
+}
+
+.cards {
+  @apply grid grid-cols-4 gap-4;
+}
+
+.card {
+  @apply relative bg-white rounded-lg shadow-lg overflow-hidden transform transition-transform duration-300 cursor-pointer;
+}
+
+.card.shake {
+  animation: shake 0.35s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-13px);
+  }
+  40% {
+    transform: translateX(13px);
+  }
+  60% {
+    transform: translateX(-8px);
+  }
+  80% {
+    transform: translateX(8px);
+  }
+}
+
+.view {
+  @apply absolute inset-0 flex items-center justify-center;
+}
+
+.front-view {
+  @apply bg-white shadow-md;
+}
+
+.back-view {
+  @apply bg-indigo-300;
+  transform: rotateY(-180deg);
+}
+
+.card.flip .back-view {
+  transform: rotateY(0);
+}
+
+.card.flip .front-view {
+  transform: rotateY(180deg);
+}
+
+@media screen and (max-width: 700px) {
+  .cards {
+    @apply grid-cols-3;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .cards {
+    @apply grid-cols-2;
+  }
+}
